@@ -1,0 +1,3 @@
+src/test/java/dvla/driver/integration/tests/RestAssuredSecret.java
+src/test/java/dvla/driver/model/SecretTest.java
+src/main/java/dvla/driver/model/Secret.java

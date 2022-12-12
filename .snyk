@@ -1,0 +1,7 @@
+ignore:
+  SNYK-JAVA-COMFASTERXMLJACKSONCORE-2421244:
+    - uk.gov.dvsa.packages:smc-common-lib:
+        reason: 'Development Dependency, not packaged'
+  SNYK-JAVA-ORGYAML-2806360:
+    - uk.gov.dvsa.packages:smc-common-lib:
+        reason: 'Development Dependency, not packaged'
