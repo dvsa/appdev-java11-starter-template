@@ -28,7 +28,8 @@
 
         <surefire.version>2.22.2</surefire.version>
         <jacoco.maven.plugin.version>0.8.3</jacoco.maven.plugin.version>
-        <smc.common.version>0.2.1</smc.common.version>
+
+        <smc.api.lib>0.0.1-SNAPSHOT</smc.api.lib>
 
         <jmockit.version>1.44</jmockit.version>
         <junit.jupiter.version>5.3.2</junit.jupiter.version>
@@ -42,17 +43,35 @@
     </properties>
 
     <dependencies>
+
+        <dependency>
+            <groupId>uk.gov.dvsa.packages</groupId>
+            <artifactId>smc-api-lib</artifactId>
+            <version>${smc.api.lib}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-nop</artifactId>
+            <version>1.7.32</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.dagger</groupId>
+            <artifactId>dagger</artifactId>
+            <version>${dagger.version}</version>
+        </dependency>
+
+
         <!--Jetty Specific Dependencies-->
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-server</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.eclipse.jetty</groupId>
-            <artifactId>jetty-servlet</artifactId>
-            <version>${jetty.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.eclipse.jetty</groupId>-->
+<!--            <artifactId>jetty-server</artifactId>-->
+<!--            <version>${jetty.version}</version>-->
+<!--        </dependency>-->
+<!--        <dependency>-->
+<!--            <groupId>org.eclipse.jetty</groupId>-->
+<!--            <artifactId>jetty-servlet</artifactId>-->
+<!--            <version>${jetty.version}</version>-->
+<!--        </dependency>-->
         <!--End of Jetty Specific Dependencies-->
         <!---->
         <!--Testing Specific Dependencies-->
@@ -119,27 +138,19 @@
         <!--End of Testing Specific Dependencies-->
         <!---->
         <!--Miscellaneous Dependencies -->
-        <dependency>
-            <groupId>uk.gov.dvsa.packages</groupId>
-            <artifactId>smc-common-lib</artifactId>
-            <version>${smc.common.version}</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>slf4j-nop</artifactId>
-                    <groupId>org.slf4j</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.slf4j</groupId>
-            <artifactId>slf4j-nop</artifactId>
-            <version>1.7.32</version>
-        </dependency>
-        <dependency>
-            <groupId>com.google.dagger</groupId>
-            <artifactId>dagger</artifactId>
-            <version>${dagger.version}</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>uk.gov.dvsa.packages</groupId>-->
+<!--            <artifactId>smc-common-lib</artifactId>-->
+<!--            <version>${smc.common.version}</version>-->
+<!--            <exclusions>-->
+<!--                <exclusion>-->
+<!--                    <artifactId>slf4j-nop</artifactId>-->
+<!--                    <groupId>org.slf4j</groupId>-->
+<!--                </exclusion>-->
+<!--            </exclusions>-->
+<!--        </dependency>-->
+
+
         <!--End of Miscellaneous Dependencies -->
         <!---->
         <!--Swagger Specific Dependencies-->

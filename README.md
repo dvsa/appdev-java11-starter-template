@@ -1,5 +1,7 @@
-# Starter Template 
+# Starter Template
+
 ---
+
 This repository contains the JAVA code for a starter template.  Key points are:
 
   - The project is based on Maven.

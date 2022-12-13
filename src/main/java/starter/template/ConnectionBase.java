@@ -1,7 +1,8 @@
 package starter.template;
 
-import dvsa.common.lib.secrets.SecretsFactory;
-import dvsa.common.lib.secrets.SecretsUtility;
+
+import dvsa.api.lib.secrets.SecretsFactory;
+import dvsa.api.lib.secrets.SecretsUtility;
 import starter.template.models.Secret;
 
 /**
@@ -26,8 +27,8 @@ public abstract class ConnectionBase {
      */
     private static void getSecretFromSecretManager() {
         // Comment these lines out when connecting to an actual AWS Secret Manage
-        // SecretsUtility secretsUtility = SecretsFactory.createInstance(System.getenv("secretkey"));
-        // templateSecret = secretsUtility.getSecrets(Secret.class);
+//         SecretsUtility secretsUtility = SecretsFactory.createInstance(System.getenv("secretkey"));
+//         templateSecret = secretsUtility.getSecrets(Secret.class);
         templateSecret = null;
     }
 

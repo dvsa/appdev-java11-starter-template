@@ -1,9 +1,9 @@
 package starter.template;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import dvsa.common.lib.cors.Cors;
-import dvsa.common.lib.cors.CorsFactory;
-import dvsa.common.lib.logging.LogOutput;
+import dvsa.api.lib.cors.Cors;
+import dvsa.api.lib.cors.CorsFactory;
+import dvsa.api.lib.logging.LogOutput;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
