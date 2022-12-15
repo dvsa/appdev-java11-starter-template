@@ -90,8 +90,8 @@ public class VersionResource extends ConnectionBase {
     @PermitAll
     public Response getVersion() {
         try {
-            VersionService versionService = DaggerVersionComponent.builder().build()
-                    .buildVersionService();
+            VersionService versionService = DaggerVersionComponent
+                    .builder().build().buildVersionService();
             VersionResponse versionResponse = versionService.getVersion();
 
             return Response.status(Response.Status.OK).entity(versionResponse).build();

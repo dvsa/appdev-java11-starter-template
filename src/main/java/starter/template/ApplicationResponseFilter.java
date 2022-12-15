@@ -1,6 +1,5 @@
 package starter.template;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import dvsa.api.lib.cors.Cors;
 import dvsa.api.lib.cors.CorsFactory;
 import dvsa.api.lib.logging.LogOutput;
@@ -22,15 +21,13 @@ public class ApplicationResponseFilter implements ContainerResponseFilter {
         Cors cors = CorsFactory.createInstance(responseContext, requestContext);
         cors.setCorsOptions();
 
-        LogOutput logOutput = new LogOutput.LogOutputBuilder()
-                .api("Starter Template API")
-                .containerRequestContext(requestContext)
-                .containerResponseContext(responseContext)
-                .build();
-
         if (!requestContext.getUriInfo().getRequestUri().toString().contains("/version")) {
-            ObjectMapper mapper = new ObjectMapper();
-            LOGGER.info(mapper.writeValueAsString(logOutput));
+            String logOutput = new LogOutput.LogOutputBuilder()
+                    .apiName("Starter Template API")
+                    .containerRequestContext(requestContext)
+                    .containerResponseContext(responseContext)
+                    .buildLogOutput();
+            LOGGER.info(logOutput);
         }
     }
 }

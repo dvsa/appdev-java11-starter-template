@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--suppress MavenModelInspection, VulnerableLibrariesLocal -->
+<!--suppress MavenModelInspection, VulnerableLibrariesLocal, MavenPackageUpdate -->
 <project xmlns="http://maven.apache.org/POM/4.0.0"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
@@ -24,26 +24,19 @@
         <maven.build.timestamp.format>dd/MM/yyyy HH:mm</maven.build.timestamp.format>
 
         <!--Variables Section-->
-        <jetty.version>9.4.50.v20221201</jetty.version>
-
         <surefire.version>2.22.2</surefire.version>
         <jacoco.maven.plugin.version>0.8.3</jacoco.maven.plugin.version>
-
-        <smc.api.lib>0.0.1-SNAPSHOT</smc.api.lib>
-
+        <smc.api.lib>1.0.2</smc.api.lib>
         <jmockit.version>1.44</jmockit.version>
         <junit.jupiter.version>5.3.2</junit.jupiter.version>
-
         <swagger.version>2.2.7</swagger.version>
         <dagger.version>2.44.2</dagger.version>
-
+        <slf4j.nop.version>1.7.32</slf4j.nop.version>
         <config.file>settings.yaml</config.file>
         <!--End Variables-->
-
     </properties>
 
     <dependencies>
-
         <dependency>
             <groupId>uk.gov.dvsa.packages</groupId>
             <artifactId>smc-api-lib</artifactId>
@@ -52,27 +45,13 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-nop</artifactId>
-            <version>1.7.32</version>
+            <version>${slf4j.nop.version}</version>
         </dependency>
         <dependency>
             <groupId>com.google.dagger</groupId>
             <artifactId>dagger</artifactId>
             <version>${dagger.version}</version>
         </dependency>
-
-
-        <!--Jetty Specific Dependencies-->
-<!--        <dependency>-->
-<!--            <groupId>org.eclipse.jetty</groupId>-->
-<!--            <artifactId>jetty-server</artifactId>-->
-<!--            <version>${jetty.version}</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.eclipse.jetty</groupId>-->
-<!--            <artifactId>jetty-servlet</artifactId>-->
-<!--            <version>${jetty.version}</version>-->
-<!--        </dependency>-->
-        <!--End of Jetty Specific Dependencies-->
         <!---->
         <!--Testing Specific Dependencies-->
         <dependency>
@@ -136,22 +115,6 @@
             </exclusions>
         </dependency>
         <!--End of Testing Specific Dependencies-->
-        <!---->
-        <!--Miscellaneous Dependencies -->
-<!--        <dependency>-->
-<!--            <groupId>uk.gov.dvsa.packages</groupId>-->
-<!--            <artifactId>smc-common-lib</artifactId>-->
-<!--            <version>${smc.common.version}</version>-->
-<!--            <exclusions>-->
-<!--                <exclusion>-->
-<!--                    <artifactId>slf4j-nop</artifactId>-->
-<!--                    <groupId>org.slf4j</groupId>-->
-<!--                </exclusion>-->
-<!--            </exclusions>-->
-<!--        </dependency>-->
-
-
-        <!--End of Miscellaneous Dependencies -->
         <!---->
         <!--Swagger Specific Dependencies-->
         <!-- https://mvnrepository.com/artifact/io.swagger.core.v3/swagger-jaxrs2 -->
