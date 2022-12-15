@@ -52,6 +52,12 @@ project. Populate that file with the following configuration:
     # Secret Key to retrieve values from AWS Secrets Manager
     secretkey: [populate as appropriate]
 
+    # Application client ID from Azure
+    azure_client_id: [populate as appropriate]
+
+    # DVSA Azure Tenant ID
+    azure_tenant_id: [populate as appropriate]
+
 ## Maven Commands
 Use the following Maven commands to run various project Lifecycle Goals:
 
