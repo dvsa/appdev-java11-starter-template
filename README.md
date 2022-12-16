@@ -4,6 +4,7 @@
 
 This repository contains the JAVA code for a starter template.  Key points are:
 
+  - Java 11 (AWS Corretto)
   - The project is based on Maven.
   - Uses the smc-api-lib package.
   - AWS Labs Serverless-Containers are used to integrate with AWS API Gateway.
