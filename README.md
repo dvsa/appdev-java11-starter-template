@@ -1,4 +1,4 @@
-# Starter Template
+# Java 11 Starter Template
 
 ---
 
