@@ -38,7 +38,8 @@ public final class AuthenticationFilter extends ConnectionBase implements Contai
             }
 
             try {
-                // Validate the JWT and process it to the Claim
+                // Validate the JWT and process it to the Claim so that the claim can be checked further if needed
+                // An exception will be thrown if the JWT is invalid
                 JwtClaims jwtClaims = Factory.getAuthoriser(token,
                                 HelperLib.getEnvironmentVariable("azure_client_id"),
                                 HelperLib.getEnvironmentVariable("azure_tenant_id"))

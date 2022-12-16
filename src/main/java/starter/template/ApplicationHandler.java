@@ -14,7 +14,7 @@ import java.io.InputStream;
 import java.io.OutputStream;
 
 /**
- * Entry point for AWS dvla-driver lambda, this class is used to set properties and sources to be used.
+ * Entry point for AWS lambda, this class is used to set properties and sources to be used.
  */
 public class ApplicationHandler implements RequestStreamHandler {
     private static final ResourceConfig jerseyApplication = new ResourceConfig()

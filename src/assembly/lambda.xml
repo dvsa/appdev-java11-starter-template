@@ -19,8 +19,8 @@
                 <exclude>META-INF/*.SF</exclude>
                 <exclude>META-INF/*.DSA</exclude>
                 <exclude>META-INF/*.RSA</exclude>
-                <exclude>dvla/vehicle/JettyLocalRunner.*</exclude>
-                <exclude>dvla/vehicle/JettySettings.*</exclude>
+                <exclude>starter/template/JettyLocalRunner.*</exclude>
+                <exclude>starter/templateJettySettings.*</exclude>
             </excludes>
             <outputDirectory>${file.separator}</outputDirectory>
         </fileSet>
