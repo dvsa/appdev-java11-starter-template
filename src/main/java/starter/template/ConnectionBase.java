@@ -22,7 +22,7 @@ public abstract class ConnectionBase {
         // Comment these lines out when connecting to an actual AWS Secret Manage
 //         SecretsUtility secretsUtility = SecretsFactory.createInstance(System.getenv("secretkey"));
 //         templateSecret = secretsUtility.getSecrets(Secret.class);
-        templateSecret = new Secret();  // set temporally
+        templateSecret = new Secret();  // set temporally to an empty object for this project
     }
 
     /**

@@ -5,14 +5,14 @@
 This repository contains the JAVA code for a starter template.  Key points are:
 
   - The project is based on Maven.
+  - Uses the smc-api-lib package.
   - AWS Labs Serverless-Containers are used to integrate with AWS API Gateway.
   - Routing is handled through Jersey.
   - Responses with Jackson.
-&nbsp;
 
 ## Pre-requisite
 
-You will need to install the following DVSA packages to make sure you have the security checks required in place:
+You will need to install the following tools to make sure you have the required security checks in place:
 
 - [git-secrets](https://github.com/awslabs/git-secrets)
 - [repo-security-scanner](https://github.com/UKHomeOffice/repo-security-scanner)
@@ -26,7 +26,6 @@ git clone git@github.com:dvsa/smc-java11-starter-template.git
 ```
 
 ## Java 11
-
 Make sure to change your Java home
 ```
 export JAVA_HOME=/Library/Java/JavaVirtualMachines/amazon-corretto-11.jdk/Contents/Home
@@ -57,6 +56,15 @@ project. Populate that file with the following configuration:
 
     # DVSA Azure Tenant ID
     azure_tenant_id: [populate as appropriate]
+
+## Running The API Locally
+- Create the config directory and `settings.yaml` file
+- Run the JettyLocalRunner class (use the IntelliJ [Env plugin](https://plugins.jetbrains.com/plugin/7861-envfile) to point to the config.yaml file)
+  - Update VM options as specified above
+- Using [Postman](https://www.postman.com) hit the two example end-points
+  - `localhost:8000/1.0/version`
+  - `localhost:8000/1.0/helloworld`
+- Standard debugging is possible anywhere within the code just add a breakpoint
 
 ## Maven Commands
 Use the following Maven commands to run various project Lifecycle Goals:
