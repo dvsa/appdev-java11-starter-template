@@ -2,14 +2,15 @@
 
 ---
 
-This repository contains the JAVA code for a starter template.  Key points are:
+This repository contains the JAVA code for a working Java 11 starter project.  Key points are:
 
-  - Java 11 (AWS Corretto)
+  - Java 11 (AWS Corretto).
   - The project is based on Maven.
   - Uses the smc-api-lib package.
   - AWS Labs Serverless-Containers are used to integrate with AWS API Gateway.
   - Routing is handled through Jersey.
   - Responses with Jackson.
+  - Dagger for dependency injection.
 
 ## Pre-requisite
 
