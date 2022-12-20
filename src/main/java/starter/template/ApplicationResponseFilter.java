@@ -1,8 +1,8 @@
 package starter.template;
 
-import dvsa.api.lib.cors.Cors;
-import dvsa.api.lib.cors.CorsFactory;
-import dvsa.api.lib.logging.LogOutput;
+import appdev.api.common.lib.cors.Cors;
+import appdev.api.common.lib.cors.CorsFactory;
+import appdev.api.common.lib.logging.LogOutput;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
