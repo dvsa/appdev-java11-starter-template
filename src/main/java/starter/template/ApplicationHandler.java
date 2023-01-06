@@ -5,6 +5,8 @@ import com.amazonaws.serverless.proxy.model.AwsProxyRequest;
 import com.amazonaws.serverless.proxy.model.AwsProxyResponse;
 import com.amazonaws.services.lambda.runtime.Context;
 import com.amazonaws.services.lambda.runtime.RequestStreamHandler;
+import org.crac.Core;
+import org.crac.Resource;
 import org.glassfish.jersey.jackson.JacksonFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.glassfish.jersey.server.ServerProperties;
@@ -16,7 +18,12 @@ import java.io.OutputStream;
 /**
  * Entry point for AWS lambda, this class is used to set properties and sources to be used.
  */
-public class ApplicationHandler implements RequestStreamHandler {
+public class ApplicationHandler implements RequestStreamHandler, Resource {
+
+    public ApplicationHandler() {
+        Core.getGlobalContext().register(this); // ## Required for AWS SnapStart
+    }
+
     private static final ResourceConfig jerseyApplication = new ResourceConfig()
             .packages("starter.template")
             .property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true)
@@ -40,5 +47,17 @@ public class ApplicationHandler implements RequestStreamHandler {
     @Override
     public void handleRequest(InputStream input, OutputStream output, Context context) throws IOException {
         handler.proxyStream(input, output, context);
+    }
+
+    @Override
+    public void beforeCheckpoint(org.crac.Context<? extends Resource> context) throws Exception {
+        // Call SnapStartInit class to initialise code before snapshot is taken
+        SnapStartInit snapStartInit = new SnapStartInit();
+        snapStartInit.init();
+    }
+
+    @Override
+    public void afterRestore(org.crac.Context<? extends Resource> context) throws Exception {
+
     }
 }
