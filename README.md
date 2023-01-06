@@ -12,6 +12,11 @@ This repository contains the JAVA code for a working Java 11 starter project.  K
   - Responses with Jackson.
   - Dagger for dependency injection.
 
+## AWS SnapStart
+This code is optimised to support [AWS SnapStart](https://docs.aws.amazon.com/lambda/latest/dg/snapstart.html).  The ApplicationHandler implements the Coordinated
+Restore at Checkpoint (CraC) wrapper, allowing code to be pre-compiled at the time of Snapshot for
+improved performance to eliminate cold starts.
+
 ## Pre-requisite
 
 You will need to install the following tools to make sure you have the required security checks in place:
