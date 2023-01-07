@@ -18,7 +18,8 @@
         <sonar.coverage.exclusions>
             **/components/**,
             **/module/**,
-            **/*Jetty*.java
+            **/*Jetty*.java,
+            **/*SnapStart*.java
         </sonar.coverage.exclusions>
         <timestamp>${maven.build.timestamp}</timestamp>
         <maven.build.timestamp.format>dd/MM/yyyy HH:mm</maven.build.timestamp.format>
