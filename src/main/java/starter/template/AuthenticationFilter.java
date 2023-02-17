@@ -1,7 +1,7 @@
 package starter.template;
 
-import dvsa.api.lib.authorisation.Factory;
-import dvsa.api.lib.helpers.HelperLib;
+import appdev.api.common.lib.authorisation.Factory;
+import appdev.api.common.lib.helpers.HelperLib;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.jose4j.jwt.JwtClaims;
