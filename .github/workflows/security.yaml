@@ -2,71 +2,15 @@ name: Run SNYK Monitor
 
 on:
   pull_request:
-      types:
-        - closed
+    types:
+      - closed
 
 jobs:
   if_merged:
     if: github.event.pull_request.merged == true
-    runs-on: ubuntu-latest
-    steps:
-      - name: Generate Maven settings.xml file to access GitHub Packages
-        uses: whelk-io/maven-settings-xml-action@v20
-        with:
-          repositories: >
-            [
-              {
-                "id": "central",
-                "url": "https://repo1.maven.org/maven2"
-              },
-              {
-                "id": "github",
-                "url": "https://maven.pkg.github.com/dvsa/smc-maven-packages",
-                "releases": {
-                  "enabled": "true"
-                  },
-                "snapshots": {
-                  "enabled": "true"
-                }
-              }
-            ]
-          servers: >
-            [
-              {
-                "id": "github",
-                "username": "${env.USER_NAME}",
-                "password": "${env.ACCESS_TOKEN}"
-              }
-            ]
-          active_profiles: >
-            [
-              "github"
-            ]
-      - name: Checkout Project Branch from GitHub
-        uses: actions/checkout@master
-      - name: Generate settings.yaml File Inside Repository
-        uses: 1arp/create-a-file-action@0.2
-        with:
-          path: 'config'
-          file: 'settings.yaml'
-
-      - name: Install SNYK-CLI
-        run: |
-          curl -o ./snyk-linux https://static.snyk.io/cli/latest/snyk-linux && \
-          curl -o ./snyk-linux.sha256 https://static.snyk.io/cli/latest/snyk-linux.sha256 && \
-          sha256sum -c snyk-linux.sha256 && \
-          mv snyk-linux /usr/local/bin/snyk && \
-          chmod +x /usr/local/bin/snyk
-
-      - name: Authorise SNYK-CLI
-        run: snyk auth ${{ secrets.SNYK_TOKEN }}
-
-      - name: Run Maven Compile to Download Project Dependencies
-        env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
-          USER_NAME: ${{ secrets.SMC_USER_NAME }}
-          ACCESS_TOKEN: ${{ secrets.SMC_ACCESS_TOKEN }}
-        run: mvn compile -DskipUTs=true
-
-      - name: Run SNYK Monitor
-        run: snyk monitor --org=smc-w53
+    uses: dvsa/smc-workflow-actions/.github/workflows/security-java11.yaml@main
+    secrets:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+      USER_NAME: ${{ secrets.SMC_USER_NAME }}
+      ACCESS_TOKEN: ${{ secrets.SMC_ACCESS_TOKEN }}
+      PACKAGE_REPO: ${{ secrets.SMC_PACKAGE_REPO }}
