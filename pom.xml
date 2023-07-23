@@ -7,7 +7,7 @@
 
     <groupId>dvsa</groupId>
     <artifactId>smc-java11-starter-template</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3</version>
 
     <properties>
         <maven.compiler.release>11</maven.compiler.release>
