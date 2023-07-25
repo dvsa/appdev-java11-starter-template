@@ -1,4 +1,4 @@
-name: Run SNYK Test
+name: Run Unit Tests with Maven
 
 on:
   push:
@@ -6,13 +6,14 @@ on:
       - '**'
 
 jobs:
-  security:
-    uses: dvsa/.github/.github/workflows/java-security.yaml@v3.2.1
+  unit-test:
+    uses: dvsa/.github/.github/workflows/java-test.yaml@v3.2.1
     with:
+      config_file_contents: |
+        environment: development
+        secretkey: default-secret-name
       java_version: 11
-      snyk_threshold: high
     secrets:
-      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       USER_NAME: ${{ secrets.SMC_USER_NAME }}
       ACCESS_TOKEN: ${{ secrets.SMC_ACCESS_TOKEN }}
       PACKAGE_REPO: ${{ secrets.SMC_PACKAGE_REPO }}

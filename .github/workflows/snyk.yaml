@@ -1,16 +1,17 @@
-name: Run SNYK Test
+name: Run SNYK Monitor
 
 on:
-  push:
-    branches:
-      - '**'
+  pull_request:
+    types:
+      - closed
 
 jobs:
   security:
-    uses: dvsa/.github/.github/workflows/java-security.yaml@v3.2.1
+    if: github.event.pull_request.merged == true
+    uses: dvsa/.github/.github/workflows/java-snyk-update.yaml@v3.2.1
     with:
       java_version: 11
-      snyk_threshold: high
+      snyk_project: smc-w53
     secrets:
       SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
       USER_NAME: ${{ secrets.SMC_USER_NAME }}
