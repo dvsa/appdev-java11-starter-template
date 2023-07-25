@@ -12,7 +12,7 @@ public class JettyLocalRunner extends ResourceConfig {
     private static final Logger LOGGER = LogManager.getLogger(JettyLocalRunner.class);
 
     public JettyLocalRunner() {
-        packages("starter.template.resources"); // <-- Set location of your Jersey resource packages
+        packages("starter.template"); // <-- Set location of your Jersey resource packages
         // allows the validation errors to be sent to the client.
         property(ServerProperties.BV_SEND_ERROR_IN_RESPONSE, true);
         // avoid errors from the @ValidateOnExecution in subclasses
